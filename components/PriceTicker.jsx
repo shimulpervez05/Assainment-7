@@ -1,0 +1,3 @@
+import Link from 'next/link';
+import {changePercent,money} from '@/lib/market';
+export default function PriceTicker({products=[]}){const items=products.slice(0,10);if(!items.length)return null;return <div className="ticker"><div className="ticker-label"><span className="live-dot"/> LIVE MARKET</div><div className="ticker-window"><div className="ticker-track">{[...items,...items].map((p,i)=>{const change=changePercent(p);return <Link href={`/product/${p.slug}`} className="ticker-item" key={`${p.id}-${i}`}><span>{p.emoji}</span><b>{p.name}</b><span>{money(p.price)}</span><em className={change>0?'rise':change<0?'fall':'flat'}>{change>0?'▲':change<0?'▼':'—'} {Math.abs(change).toLocaleString('bn-BD',{maximumFractionDigits:1})}%</em></Link>})}</div></div></div>}

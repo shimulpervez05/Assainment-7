@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function Footer(){return <footer className="footer"><div className="wrap footer-inner"><Link href="/" className="footer-brand"><span>🛒</span><div><strong>বাজার দর</strong><p>প্রয়োজনীয় পণ্যের দাম এক নজরে।</p></div></Link><p className="footer-disclaimer">সকল দাম সম্ভাব্য; বাজার অবস্থার ওপর নির্ভর করে পরিবর্তিত হয়।</p><div className="footer-bottom"><span>© {new Date().getFullYear()} বাজার দর</span><span>তথ্য জানুন, সচেতন থাকুন।</span></div></div></footer>}

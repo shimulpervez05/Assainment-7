@@ -1,0 +1,4 @@
+import Link from 'next/link';
+import {ArrowUpRight} from 'lucide-react';
+import {changePercent,money} from '@/lib/market';
+export default function ProductCard({product}){const ch=changePercent(product);return <Link href={`/product/${product.slug}`} className="product-card"><div className="card-top"><div className="product-emoji">{product.emoji}</div><span className={`change-badge ${ch>0?'rise':ch<0?'fall':'flat'}`}>{ch>0?'▲':ch<0?'▼':'—'} {Math.abs(ch).toLocaleString('bn-BD',{maximumFractionDigits:1})}%</span></div><div className="product-category">{product.categoryName||product.category}</div><h3>{product.name}</h3><p className="product-unit">{product.unit}</p><div className="price-row"><div><small>আজকের দাম</small><strong>{money(product.price)}</strong></div><span className="card-arrow"><ArrowUpRight size={17}/></span></div></Link>}
